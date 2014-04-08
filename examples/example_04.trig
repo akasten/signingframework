@@ -1,0 +1,19 @@
+# Root level triples with blank nodes
+# Purpose: Testing blank nodes
+
+@prefix eg: <http://www.example.org/#> .
+
+eg:subject1 eg:predicateA _:link1 .
+_:link1 eg:predicateB eg:object1 .
+_:link1 eg:predicateC eg:object2 .
+
+eg:subject2 eg:predicateA _:link2 .
+_:link2 eg:predicateB eg:object3 .
+_:link2 eg:predicateC eg:object4 .
+_:link2 eg:predicateD eg:object5 .
+
+eg:subject3 eg:predicateA _:link1 .
+eg:subject3 eg:predicateA _:link2 .
+eg:subject3 eg:predicateA _:link3 .
+
+_:link3 eg:predicateD eg:object6 .
