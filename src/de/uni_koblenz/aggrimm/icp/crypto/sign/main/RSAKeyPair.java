@@ -30,7 +30,7 @@ public class RSAKeyPair {
 
 	public RSAKeyPair(String privateKeyFileName, String publicKeyFileName)
 			throws IOException {
-		
+
 		File privateKeyFile = new File(privateKeyFileName);
 		File publicKeyFile = new File(publicKeyFileName);
 
@@ -85,7 +85,7 @@ public class RSAKeyPair {
 
 		this.keyPair = new KeyPair(publicKey, privateKey);
 	}
-	
+
 	public KeyPair getKeyPair() {
 		return this.keyPair;
 	}
@@ -127,5 +127,37 @@ public class RSAKeyPair {
 		finally {
 			fos.close();
 		}
+	}
+
+	public static PublicKey loadPublicKey(String publicKeyFileName) throws IOException {
+		File publicKeyFile = new File(publicKeyFileName);
+
+		FileInputStream fis = null;
+		byte[] keyBytes = null;
+		KeyFactory keyFactory = null;
+		PublicKey publicKey = null;
+
+		try {
+			fis = new FileInputStream(publicKeyFile);
+			keyBytes = new byte[(int) publicKeyFile.length()];
+			fis.read(keyBytes);
+		}
+		finally {
+			fis.close();
+		}
+
+		try {
+			keyFactory = KeyFactory.getInstance(algorithmName);
+			X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(keyBytes);
+			publicKey = keyFactory.generatePublic(publicKeySpec);
+		}
+		catch (NoSuchAlgorithmException e) {
+			throw new IOException(e);
+		}
+		catch (InvalidKeySpecException e) {
+			throw new IOException(e);
+		}
+
+		return publicKey;
 	}
 }

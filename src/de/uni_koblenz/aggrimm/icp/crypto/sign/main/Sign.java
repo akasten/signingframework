@@ -76,7 +76,7 @@ public class Sign {
 		}
 		catch (Exception e) {
 			System.err.println("Invalid key pair.");
-//			e.printStackTrace();
+			// e.printStackTrace();
 			System.exit(-3);
 		}
 
@@ -86,7 +86,7 @@ public class Sign {
 		}
 		catch (Exception e) {
 			System.err.println("Unknown framework configuration.");
-//			e.printStackTrace();
+			// e.printStackTrace();
 			System.exit(-3);
 		}
 
@@ -96,24 +96,25 @@ public class Sign {
 		}
 		catch (Exception e) {
 			System.err.println("Input file does not contain valid graphs.");
-//			e.printStackTrace();
+			// e.printStackTrace();
 			System.exit(-3);
 		}
-		
+
 		try {
 			signer.signGraph(keyPair, gc, outputGraph, config);
 		}
 		catch (Exception e) {
 			System.err.println("Signing operation failed.");
-//			e.printStackTrace();
+			// e.printStackTrace();
 			System.exit(-4);
 		}
-		
+
 		System.out.println("Input graph was successfully signed.");
 	}
 
 	void signGraph(KeyPair keyPair, GraphCollection inputGraph,
-			String outputGraph, SignatureAlgorithmInterface config) throws Exception {
+			String outputGraph, SignatureAlgorithmInterface config)
+			throws Exception {
 
 		config.canonicalize(inputGraph);
 		config.postCanonicalize(inputGraph);

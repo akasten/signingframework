@@ -2,10 +2,12 @@ package de.uni_koblenz.aggrimm.icp.crypto.sign.main;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
 import java.util.Scanner;
 
 import de.uni_koblenz.aggrimm.icp.crypto.sign.algorithm.SignatureAlgorithmInterface;
 import de.uni_koblenz.aggrimm.icp.crypto.sign.algorithm.SignatureAlgorithmList;
+import de.uni_koblenz.aggrimm.icp.crypto.sign.algorithm.SignatureVerifier;
 import de.uni_koblenz.aggrimm.icp.crypto.sign.graph.GraphCollection;
 import de.uni_koblenz.aggrimm.icp.crypto.sign.trigplus.TriGPlusReader;
 
@@ -14,7 +16,7 @@ public class Main {
 	private static Scanner inReader;
 
 	public static void main(String[] args) {
-		
+
 		if (args.length > 0) {
 			Sign.main(args);
 			return;
@@ -27,7 +29,7 @@ public class Main {
 		while (running) {
 			switch (getChoice("What do you want to do today?",
 					" (1) Create a key pair\n" + " (2) Sign a graph\n"
-							+ " (3) Quit", 3)) {
+							+ " (3) Verify a signature\n" + " (4) Quit", 4)) {
 				case 1:
 					createKey();
 					break;
@@ -35,6 +37,9 @@ public class Main {
 					signGraph();
 					break;
 				case 3:
+					verifySignature();
+					break;
+				case 4:
 					running = false;
 					System.out.println("Thank you for using this application.");
 					break;
@@ -151,6 +156,51 @@ public class Main {
 			System.out
 					.println("The input graphs were successfully signed. The result is stored in the file '"
 							+ outputGraph + "'.");
+		}
+		catch (Exception e) {
+			System.err
+					.println("An unexpected error occured. The graph could not be signed.");
+			e.printStackTrace();
+			return;
+		}
+	}
+
+	/**
+	 * Verifies the signature of a signed graph.
+	 */
+	private static void verifySignature() {
+		System.out
+				.println("In order to sign a graph, you must first specicy some parameters.");
+
+		String inputGraph = getStringValue("Please specify the filename of the signed graph:");
+		GraphCollection gc = null;
+		try {
+			gc = TriGPlusReader.readFile(inputGraph, true);
+		}
+		catch (Exception e) {
+			System.err
+					.println("An unexpected error occured. The specified input file does not contain a valid set of graphs.");
+			return;
+		}
+
+		PublicKey publicKey = null;
+		String pkFileName = getStringValue("Please specify the filename of the public key file:");
+		try {
+			publicKey = RSAKeyPair.loadPublicKey(pkFileName);
+		}
+		catch (Exception e) {
+			System.err
+					.println("An unexpected error occured. The specified key files do not contain a valid public key.");
+			return;
+		}
+
+		try {
+			if (SignatureVerifier.verify(gc, publicKey)) {
+				System.out.println("The signature is valid.");
+			}
+			else {
+				System.out.println("The signature is invalid.");
+			}
 		}
 		catch (Exception e) {
 			System.err
