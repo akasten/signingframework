@@ -115,7 +115,7 @@ public class SignatureAlgorithmFisteus2010 implements SignatureAlgorithmInterfac
 				hashGraphCountCollisions(g);
 			}
 			
-			System.out.println("******* ITERATIONS: " + i);
+			//System.out.println("******* ITERATIONS: " + i);
 			
 			//End if there are no collisions
 			if (collisions==0){
