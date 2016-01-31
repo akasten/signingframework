@@ -1,0 +1,760 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DUL "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#"
+     xml:base="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:DUL="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl">
+        <owl:versionIRI rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature-0.1.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
+    </owl:Ontology>
+    
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDigestMethod -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDigestMethod">
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#DigestMethod"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isDigestMethodOf"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphCanonicalizationMethod -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphCanonicalizationMethod">
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphCanonicalizationMethod"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphCanonicalizationMethodOf"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphDigestMethod -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphDigestMethod">
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphDigestMethod"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphSerializationMethod -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphSerializationMethod">
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphSerializationMethodOf"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphSigningMethod -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphSigningMethod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#Signature"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;associatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasHolder -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasHolder">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;associatedWith"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&DUL;Agent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName"/>
+                        <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasIssuer -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasIssuer">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;associatedWith"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&DUL;Agent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName"/>
+                        <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasSignatureMethod -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasSignatureMethod">
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#SignatureMethod"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isSignatureMethodOf"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasComponent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasVerificationCertificate -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasVerificationCertificate">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#Signature"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;associatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isDigestMethodOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isDigestMethodOf">
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#DigestMethod"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;isComponentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphCanonicalizationMethodOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphCanonicalizationMethodOf">
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphCanonicalizationMethod"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;isComponentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphDigestMethodOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphDigestMethodOf">
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphDigestMethod"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphDigestMethod"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;isComponentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphSerializationMethodOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphSerializationMethodOf">
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;isComponentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphSigningMethodOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isGraphSigningMethodOf">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#Signature"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphSigningMethod"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;associatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isHolderOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isHolderOf">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasHolder"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;associatedWith"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&DUL;Agent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName"/>
+                        <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isIssuerOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isIssuerOf">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasIssuer"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;associatedWith"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&DUL;Agent"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName"/>
+                        <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isSignatureMethodOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isSignatureMethodOf">
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#SignatureMethod"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;isComponentOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isVerificationCertificateOf -->
+
+    <owl:ObjectProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#isVerificationCertificateOf">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+        <rdfs:range rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#Signature"/>
+        <owl:inverseOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasVerificationCertificate"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;associatedWith"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith -->
+
+    <owl:ObjectProperty rdf:about="&DUL;associatedWith"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasComponent -->
+
+    <owl:ObjectProperty rdf:about="&DUL;hasComponent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isComponentOf -->
+
+    <owl:ObjectProperty rdf:about="&DUL;isComponentOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName -->
+
+    <owl:DatatypeProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&DUL;Agent"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasSerialNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasSerialNumber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#X509Certificate"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasSignatureValue -->
+
+    <owl:DatatypeProperty rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasSignatureValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#Signature"/>
+        <rdfs:subPropertyOf rdf:resource="&DUL;hasDataValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="&DUL;hasDataValue"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#DigestMethod -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#DigestMethod">
+        <rdfs:subClassOf rdf:resource="&DUL;Method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphCanonicalizationMethod -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphCanonicalizationMethod">
+        <rdfs:subClassOf rdf:resource="&DUL;Method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphDigestMethod -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphDigestMethod">
+        <rdfs:subClassOf rdf:resource="&DUL;Method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod">
+        <rdfs:subClassOf rdf:resource="&DUL;Method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod">
+        <rdfs:subClassOf rdf:resource="&DUL;Method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PGPCertificate -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PGPCertificate">
+        <rdfs:subClassOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasHolder"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&DUL;Agent"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName"/>
+                                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#X509Certificate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate">
+        <rdfs:subClassOf rdf:resource="&DUL;InformationObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#Signature -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#Signature">
+        <rdfs:subClassOf rdf:resource="&DUL;InformationObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasGraphSigningMethod"/>
+                <owl:onClass rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasSignatureValue"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasVerificationCertificate"/>
+                <owl:onClass rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#SignatureMethod -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#SignatureMethod">
+        <rdfs:subClassOf rdf:resource="&DUL;Method"/>
+    </owl:Class>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#X509Certificate -->
+
+    <owl:Class rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#X509Certificate">
+        <rdfs:subClassOf rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#PublicKeyCertificate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasIssuer"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&DUL;Agent"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName"/>
+                                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasSerialNumber"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasHolder"/>
+                <owl:onClass>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&DUL;Agent"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#hasDistinguishedName"/>
+                                <owl:someValuesFrom rdf:resource="&rdfs;Literal"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:onClass>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent -->
+
+    <owl:Class rdf:about="&DUL;Agent"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject -->
+
+    <owl:Class rdf:about="&DUL;InformationObject"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Method -->
+
+    <owl:Class rdf:about="&DUL;Method"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#dm-md5 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#dm-md5">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#DigestMethod"/>
+        <dc:description xml:lang="en">This digest method corresponds to the MD5 hash algorithm. The details of this algorithm are described in RFC 1321, which is available at
+
+http://tools.ietf.org/html/rfc1321</dc:description>
+        <rdfs:isDefinedBy>http://tools.ietf.org/html/rfc1321</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#dm-sha1 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#dm-sha1">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#DigestMethod"/>
+        <rdfs:isDefinedBy>http://tools.ietf.org/html/rfc3174</rdfs:isDefinedBy>
+        <dc:description xml:lang="en">This digest method corresponds to the SHA-1 hash algorithm. The details of this algorithm are described in RFC 3174, which is available at
+
+http://tools.ietf.org/html/rfc3174</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gcm-carroll-2003 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gcm-carroll-2003">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphCanonicalizationMethod"/>
+        <dc:description xml:lang="en">The details of this canonicalization method for graphs are described in:
+
+J.J.Carroll: Signing RDF Graphs. ISWC, 2003.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gcm-fisteus-2010 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gcm-fisteus-2010">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphCanonicalizationMethod"/>
+        <dc:description xml:lang="en">The details of this canonicalization method for graphs are described in:
+
+J.A.Fisteus, N.F.Garcia, L.S.Fernandez, C.Delgado Kloos: Hashing and canonicalizing Notation 3 graphs. JCSS 76, 2010. Pages 663-685.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gcm-sayers-2004 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gcm-sayers-2004">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphCanonicalizationMethod"/>
+        <dc:description xml:lang="en">The details of this canonicalization method for graphs are described in:
+
+C.Sayers, A.H.Karp: Computing the digest of an RDF graph. Technical report, HP Laboratories, 2004.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-carroll-2003 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-carroll-2003">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphDigestMethod"/>
+        <dc:description xml:lang="en">The details of this digest method for graphs are described in:
+
+J.J.Carroll: Signing RDF Graphs. ISWC, 2003.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-fisteus-2010 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-fisteus-2010">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphDigestMethod"/>
+        <dc:description xml:lang="en">The details of this digest method for graphs are described in:
+
+J.A.Fisteus, N.F.Garcia, L.S.Fernandez, C.Delgado Kloos: Hashing and canonicalizing Notation 3 graphs. JCSS 76, 2010. Pages 663-685.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-melnik-2001 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-melnik-2001">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphDigestMethod"/>
+        <dc:description xml:lang="en">The details of this digest method for graphs is as part of the RDF API my Melnik which is available at
+
+http://infolab.stanford.edu/~melnik/rdf/api.html</dc:description>
+        <rdfs:isDefinedBy>http://infolab.stanford.edu/~melnik/rdf/api.html</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-sayers-2004 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-sayers-2004">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphDigestMethod"/>
+        <dc:description xml:lang="en">The details of this digest method for graphs are described in:
+
+C.Sayers, A.H.Karp: Computing the digest of an RDF graph. Technical report, HP Laboratories, 2004.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-n-triples -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-n-triples">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod"/>
+        <rdfs:isDefinedBy>http://www.w3.org/2001/sw/RDFCore/ntriples/</rdfs:isDefinedBy>
+        <dc:description xml:lang="en">This serialization method corresponds to the N-Triples format. The details of this format are described at
+
+http://www.w3.org/2001/sw/RDFCore/ntriples/</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-n3 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-n3">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod"/>
+        <dc:description xml:lang="en">This serialization method corresponds to the N3 format. The details of this format are described at
+
+http://www.w3.org/DesignIssues/Notation3.html</dc:description>
+        <rdfs:isDefinedBy>http://www.w3.org/DesignIssues/Notation3.html</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-owl-xml -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-owl-xml">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod"/>
+        <dc:description xml:lang="en">This serialization method corresponds to the OWL/XML format. The details of this format are described at
+
+http://www.w3.org/TR/owl-xmlsyntax/</dc:description>
+        <rdfs:isDefinedBy>http://www.w3.org/TR/owl-xmlsyntax/</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-rdf-xml -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-rdf-xml">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod"/>
+        <rdfs:isDefinedBy>http://www.w3.org/TR/rdf-syntax-grammar/</rdfs:isDefinedBy>
+        <dc:description xml:lang="en">This serialization method corresponds to the RDF/XML format. The details of this format are described at
+
+http://www.w3.org/TR/rdf-syntax-grammar/</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-trig -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-trig">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod"/>
+        <rdfs:isDefinedBy>http://www4.wiwiss.fu-berlin.de/bizer/TriG/Spec/</rdfs:isDefinedBy>
+        <dc:description xml:lang="en">This serialization method corresponds to the TriG format. The details of this format are described at
+
+http://www4.wiwiss.fu-berlin.de/bizer/TriG/Spec/</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#graph-signing-method-tummarello-2005 -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#graph-signing-method-tummarello-2005">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSigningMethod"/>
+        <dc:description xml:lang="en">The details of this signing method for graphs are described in:
+
+G.Tummarello, C.Morbidoni, P.Puliti, F.Piazza: Signing Individual Fragments of an RDF Graph. WWW, 2005.</dc:description>
+        <hasGraphCanonicalizationMethod rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gcm-carroll-2003"/>
+        <hasGraphDigestMethod rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gdm-carroll-2003"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-turtle -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#gsm-turtle">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#GraphSerializationMethod"/>
+        <dc:description xml:lang="en">This serialization method corresponds to the Turtle format. The details of this format are described at
+
+http://www.w3.org/TeamSubmission/turtle/</dc:description>
+        <rdfs:isDefinedBy>http://www.w3.org/TeamSubmission/turtle/</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#sm-dsa -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#sm-dsa">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#SignatureMethod"/>
+        <dc:description xml:lang="en">This signature method corresponds to the Discrete Signature Algorithm (DSA). The details of this algorithm are described in FIPS PUB 186, which is available at
+
+http://www.itl.nist.gov/fipspubs/fip186.htm</dc:description>
+        <rdfs:isDefinedBy>http://www.itl.nist.gov/fipspubs/fip186.htm</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#sm-elgamal -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#sm-elgamal">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#SignatureMethod"/>
+        <dc:description xml:lang="en">This signature method corresponds to the ElGamal signature algorithm. The details of this algorithm are described in
+
+T. ElGamal: A public key cryptosystem and a signature scheme based on discrete logarithms. IEEE Trans inf Theo 31 (4), 1985. Pages 469&#8211;472.</dc:description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#sm-rsa -->
+
+    <owl:NamedIndividual rdf:about="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#sm-rsa">
+        <rdf:type rdf:resource="http://icp.it-risk.iwvi.uni-koblenz.de/ontologies/signature.owl#SignatureMethod"/>
+        <dc:description xml:lang="en">This signature method corresponds to the RSA signature algorithm. The details of this algorithm are described in
+
+R.Rivest, A.Shamir, L.Adleman: A method for obtaining digital signatures and public-key cryptosystems. CACM 21, 1978. Pages 120-126.</dc:description>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.0.0.1469) http://owlapi.sourceforge.net -->
+
