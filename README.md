@@ -1,7 +1,6 @@
 # A Software Framework for Iterative Signing of Graph Data
 
-Existing algorithms for signing graph data typically do not cover the whole signing process. In addition, they lack distinctive features such as signing graph data at different levels of granularity, iterative signing of graph data, and signing multiple graphs.
-This software framework implements a [theoretical framework](http://icp.it-risk.iwvi.uni-koblenz.de/wiki/Signing_Graphs) for signing arbitrary graph data provided, e.g., as RDF(S), Named Graphs, or OWL. More details on the theoretical framework are provided at an [external site](http://icp.it-risk.iwvi.uni-koblenz.de/wiki/Signing_Graphs).
+Existing algorithms for signing graph data typically do not cover the whole signing process. In addition, they lack distinctive features such as signing graph data at different levels of granularity, iterative signing of graph data, and signing multiple graphs. This software framework implements a theoretical framework for signing arbitrary graph data provided, e.g., as RDF(S), Named Graphs, or OWL. More details on the theoretical framework are provided in a [conference paper](http://link.springer.com/chapter/10.1007/978-3-319-07443-6_11).
 
 ## Compiling
 
@@ -41,7 +40,7 @@ Additionally, the framework also supports a non-interactive mode. This mode only
 The parameter `-i` specifies the file name of the input graph. Several example files can be found in the folder `examples`.
 The parameter `-o` specifies the file name of the signed output graph. If the file already exists, it will be overwritten.
 The parameters `-sk` and `-pk` specify the file name of the private key and public key, respectively. Both keys must be part of the same key pair. Signature keys can be created using the interactive mode of the framework.
-The parameter `-c` specifies the configuration of the framework used for signing the graph. Detailed information about the characteristics of the four configurations are provided at an [external web site](http://icp.it-risk.iwvi.uni-koblenz.de/wiki/Graph_Signing_Functions).
+The parameter `-c` specifies the configuration of the framework used for signing the graph.
 
 Given a key pair consisting of the private key `my_private.key` and the public key `my_public.key`, signing the example graph `example_05.trig` with the configuration `carroll-2003` can be done with the following command:
 ```
