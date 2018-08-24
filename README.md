@@ -1,6 +1,6 @@
 # A Software Framework for Iterative Signing of Graph Data
 
-Existing algorithms for signing graph data typically do not cover the whole signing process. In addition, they lack distinctive features such as signing graph data at different levels of granularity, iterative signing of graph data, and signing multiple graphs. This software framework implements a theoretical framework for signing arbitrary graph data provided, e.g., as RDF(S), Named Graphs, or OWL. More details on the theoretical framework are provided in a [conference paper](http://link.springer.com/chapter/10.1007/978-3-319-07443-6_11).
+Existing algorithms for signing graph data typically do not cover the whole signing process. In addition, they lack distinctive features such as signing graph data at different levels of granularity, iterative signing of graph data, and signing multiple graphs. This software framework implements a theoretical framework for signing arbitrary graph data provided, e.g., as RDF(S), Named Graphs, or OWL. More details on the theoretical framework are provided in a [conference paper](http://link.springer.com/chapter/10.1007/978-3-319-07443-6_11) as well in [this thesis](https://kola.opus.hbz-nrw.de/files/1393/thesis.pdf).
 
 ## Compiling
 
