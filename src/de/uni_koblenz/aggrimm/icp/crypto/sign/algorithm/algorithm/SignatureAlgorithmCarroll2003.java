@@ -1,6 +1,7 @@
 package de.uni_koblenz.aggrimm.icp.crypto.sign.algorithm.algorithm;
 
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.util.Collections;
@@ -391,7 +392,7 @@ public class SignatureAlgorithmCarroll2003 implements SignatureAlgorithmInterfac
 		d.reset();
 		for (Triple t:triples){
 			if (Ontology.isRelevantForHash(t)){
-				byte[] tripleBytes=(t.getSubject()+t.getPredicate()+t.getObject()).getBytes();
+				byte[] tripleBytes=(t.getSubject()+t.getPredicate()+t.getObject()).getBytes(StandardCharsets.UTF_8);
 				d.update(tripleBytes);
 			}
 		}
