@@ -1,6 +1,7 @@
 package de.uni_koblenz.aggrimm.icp.crypto.sign.algorithm.algorithm;
 
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -448,7 +449,7 @@ public class SignatureAlgorithmFisteus2010 implements SignatureAlgorithmInterfac
 	 * @return  hash value as BigInteger
 	 */
 	private BigInteger hashString(String s){
-		return new BigInteger( digestGen.digest(s.getBytes()) );
+		return new BigInteger( digestGen.digest(s.getBytes(StandardCharsets.UTF_8)) );
 	}
 	
 	/**
